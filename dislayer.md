@@ -33,6 +33,17 @@ int ran G1/1/1, G1/1/2
 switchport trunk encapsulation dot1q
 switchport mode trunk                     //seems like default already auto trunking
 switchport trunk allowed vlan 1,10,20    //choose the vlan to allow thru. Must create Vlan prior. Must set Vlan to port. If set the etherchn alrdy, must undo etherchn first!!!
+//////////////////////////////
+Remove etherchannel (port-channel)
+
+Switch#conf t
+Switch(config)#int gix/x/x
+Switch(config-if)#no channel-group x
+Switch(config)#exit
+Switch(config)#no interface port-channelx
+Switch(config)#
+////////////////
+
 https://www.cisco.com/c/en/us/support/docs/smb/switches/cisco-small-business-300-series-managed-switches/smb5653-configure-port-to-vlan-interface-settings-on-a-switch-throug.html
 
 channel-group 4 mode on
