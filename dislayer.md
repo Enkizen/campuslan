@@ -20,32 +20,22 @@ sh run > shrun.cfg
 uname -a
 uname -s
 
+//for the time being
+sh int switchport | begin G1/1/1
+
 2x Hot Swap L3 Switch + SFP to Next Layer
 //Begin commands For the basic commands refer to access switch manual
 //I will only take note of what is different here
 
 en
 conf t
+int ran G1/1/1, G1/1/2
+switchport trunk encapsulation dot1q
+switchport mode trunk                     //seems like default already auto trunking
+switchport trunk allowed vlan 1,10,20    //choose the vlan to allow thru. Must create Vlan prior. Must set Vlan to port. If set the etherchn alrdy, must undo etherchn first!!!
+https://www.cisco.com/c/en/us/support/docs/smb/switches/cisco-small-business-300-series-managed-switches/smb5653-configure-port-to-vlan-interface-settings-on-a-switch-throug.html
 
-//login banner
-
-banner login #
-Only authorized people and services are allowed to proceed.
-Monitoring is active on this system and your access has been logged.
-By proceeding, you accept to the terms and liable for any criminal or negligence activity.
-#
-//login banner not available on packet tracer
-
-banner motd #
-Only authorized people and services are allowed to proceed.
-Monitoring is active on this system and your access has been logged.
-By proceeding, you accept to the terms and liable for any criminal or negligence activity.
-#
-//portfast
-int ran g2/1,g3/1,g4/1,g5/1,g6/1,g7/1,g8/1,g9/1
-spanning-tree portfast
-spanning-tree bpduguard enable
-
+channel-group 4 mode on
 end
 wr
 
@@ -79,5 +69,14 @@ Monitoring is active on this system and your access has been logged.
 By proceeding, you accept to the terms and liable for any criminal or negligence activity.
 #
 end
-copy run start
+
+
+en
+conf t
+int ran G1/1/1, G1/1/2
+switchport trunk encapsulation dot1q
+switchport mode trunk                   
+channel-group 4 mode on
+
+
 //end of shorten version
