@@ -1,34 +1,31 @@
-2x Hot Swap L3 Switch + SFP to Next Layer
+##Useful
+/filter            //linux command in cisco cli
 
-//Begin commands
+At global config mode // not available on packet tracer
+shell processing full
+end
+// this will turn on grep which allows filter in linux
+show ip int brief | grep keyword | grep -v (not show keyword) | grep -v (exclude keyword)
+
+show ip int brief | include    //grep is able to do more than include !!!! It can do exclude.
+
+show run | grep 1.1
+
+//other commands
+show shell function //list all of the linux command available here
+
+//Can even pipe
+sh run > shrun.cfg
+
+uname -a
+uname -s
+
+2x Hot Swap L3 Switch + SFP to Next Layer
+//Begin commands For the basic commands refer to access switch manual
+//I will only take note of what is different here
 
 en
 conf t
-en secret WithPride!!$@&WeLead
-username admin7 privilege 15 secret WithPride!7!$@&WeLead
-line vty 0 4
-transport input ssh
-login local
-exit
-
-###By default, when you configure a Cisco device, you have to use the console cable and connect directly to the system to access it. Follow the steps mentioned below, which will enable SSH access to your Cisco devices. Once you enable SSH, you can access it remotely using PuTTY or any other SSH client.
-
-First, make sure you have performed basic network configurations on your switch. For example, assign default gateway, assign management ip-address, etc. If this is already done, skip to the next step.
-
-In the following example, the management ip address is set as 192.168.101.2 in the 101 VLAN. The default gateway points to the firewall, which is 192.168.101.1
-###
-//ip management of switch
-
-ip default-gateway 192.168.101.1
-
-interface vlan 101
-ip address 192.168.101.2 255.255.255.0                  
-exit
-hostname sswitch
-ip domain-name enkizen.com
-crypto key generate rsa
-2048
-ip ssh version 2
 
 //login banner
 
