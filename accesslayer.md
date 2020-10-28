@@ -4,7 +4,8 @@ Gigabit Ethernet Network Module CGE x 2 (Future considerations 1FGE)<br />
 
 STS (Static Transfer Switch) if the switch only has 1 power supply. <br />
 
-2x Hot Swap L3 Switch + SFP to Next Layer 1 L2 Switch <br />
+2x Hot Swap L3 Switch + SFP to Next Layer<br />
+1x L2 Switch <br />
 
 Hardening
 https://www.cisco.com/c/en/us/support/docs/ip/access-lists/13608-21.html#anc14
