@@ -5,6 +5,7 @@ Mission
 SGUS only introduce the concepts of networking on the surface level.
 To hone skills enough to design and manage a real-world network
 
+
 ##Must have##
 1. Topology diagram
 In-band management
@@ -25,3 +26,7 @@ The result of using Layer 3 to interconnect the two core layers is:
 • A data center core that provides interconnect for all data center servers and services. 
 • Intra-data center Layer 2 and Layer 3 traffic flows between servers and appliances that are switched locally on the data center core. 
 • A data center that has a logical separation point for moving to an offsite location while still providing core services without redesign
+
+
+//Limitations
+All the models of routers and switches in packet tracer are outdated and end of support already.
