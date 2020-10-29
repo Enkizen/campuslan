@@ -1,0 +1,7 @@
+https://www.cisco.com/c/en/us/support/docs/smb/switches/cisco-small-business-300-series-managed-switches/smb5653-configure-port-to-vlan-interface-settings-on-a-switch-throug.html
+
+VLAN1 - 
+This is the default VLAN. The switch is connected to the router through this VLAN. This can be used but cannot be modified or deleted.
+VLAN10 - Virtual network for the Admin department. The network address is 192.168.10.1 with subnet mask 255.255.255.0 or /24.
+VLAN20 - Virtual network for the Finance department. The network address is 192.168.20.1 with subnet mask 255.255.255.0 or /24.
+VLAN30 - Virtual network for the Operations department. The network address is 192.168.30.1 with subnet mask 255.255.255.0 or /24.
