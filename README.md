@@ -7,13 +7,15 @@ To hone skills enough to design and manage a real-world network
 
 
 ##Must have##
+<b>Traditional 3 layer hierarchy Architecture (Not the spine and leaf)</b>
+
 1. Topology diagram
 In-band management
 Out-band Management
 DHCP
 DNS
 DMZ
-3 Tier Architecture
+
 
 2. Documented config and the reasoning
 
