@@ -54,7 +54,7 @@ exit
 ip dhcp excluded-address 192.168.10.1 192.168.10.10
 ip dhcp excluded-address 192.168.10.12 192.168.10.14
 
-// ok here goes nothing. if expand scope, need both sides expand
+// tested. if expand scope, need both sides expand
 
 en
 conf t
@@ -70,3 +70,8 @@ exit
 	
 ip dhcp excluded-address 192.168.10.1 192.168.10.10
 ip dhcp excluded-address 192.168.10.12 192.168.10.14
+
+
+
+//if deploy windows server
+//rem need to set static IP too, not just on dhcp services.
