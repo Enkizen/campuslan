@@ -1,0 +1,19 @@
+A loopback address is a special IP address, 127.0. 0.1
+
+
+RFC1918
+IPv4 Private Address Space and Filtering
+the following IPv4 address ranges are reserved by the IANA for private internets, and are not publicly routable on the global internet:
+10.0.0.0/8 IP addresses: 10.0.0.0 – 10.255.255.255
+172.16.0.0/12 IP addresses: 172.16.0.0 – 172.31.255.255
+192.168.0.0/16 IP addresses: 192.168.0.0 – 192.168.255.255
+
+It is merely a necessity constraint and personal preference.
+
+If a Network is being built that would only have 10, or 20, or 50, or even 100 hosts, there is no reason not to use a /24 from 192.168.0.0/16. This is why home networks typically use the 192.168.0.0 range.
+
+If a Network is being built that would (in all growth projections) only have up to 1000 or 2000 users, then picking a few /20's in the 172.16.0.0/12 range is perfectly reasonable.
+
+If a Network is being built that would (in all growth projections) possibly exceed that, then the 10.0.0.0 IP space is ideal.
+
+That said, there are no rules or regulations. Anyone is free to use the 10.0.0.0 range or the 192.168.0.0 range for whatever network(s) they want.
