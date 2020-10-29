@@ -1,1 +1,72 @@
+//the router will act as DHCP and router at the same time. 2 ports cannot have the same ip. Cannot lazy.
+en
+conf t
+int g0/0
+ip add 192.168.0.1 255.255.255.0    
+no shutdown
+exit
 
+int g1/0
+ip add 192.168.1.1 255.255.255.0    
+no shutdown
+exit
+
+en
+conf t
+int g2/0
+ip add 192.168.1.2 255.255.255.0    
+no shutdown
+exit
+//the mask will state how many add avail in pool 65534
+ip dhcp pool LAB
+
+network 192.168.0.0 255.255.0.0 // when I change to 255.255.0.0, it will fail.
+default-router 192.168.0.1
+
+
+domain-name enkizen.com
+dns-server 192.168.1.1
+
+//next server used to config tftp server. not available on packet tracer
+next-server 10.10.10.10
+
+//prevent ip conflicts for static ips of  the printers routers etc
+
+ip dhcp excluded-address 192.168.0.1 192.168.1.1
+
+//useful
+sh ip dhcp pool
+sh ip dhcp binding
+//end of useful
+
+en
+conf t
+int g0/0
+
+ip address 192.168.10.1 255.255.255.0
+no shut
+exit
+ip dhcp pool IPD
+network 192.168.10.0 255.255.255.0
+default-router 192.168.10.1
+exit
+	
+ip dhcp excluded-address 192.168.10.1 192.168.10.10
+ip dhcp excluded-address 192.168.10.12 192.168.10.14
+
+// ok here goes nothing. if expand scope, need both sides expand
+
+en
+conf t
+int g0/0
+
+ip address 192.168.10.1 255.255.0.0
+no shut
+exit
+ip dhcp pool IPD
+network 192.168.10.0 255.255.0.0
+default-router 192.168.10.1
+exit
+	
+ip dhcp excluded-address 192.168.10.1 192.168.10.10
+ip dhcp excluded-address 192.168.10.12 192.168.10.14
