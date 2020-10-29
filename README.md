@@ -10,8 +10,7 @@ To hone skills enough to design and manage a real-world network
 <b>Traditional 3 layer hierarchy Architecture (Not the spine and leaf)</b>
 
 1. Topology diagram
-In-band management
-Out-band Management
++
 DHCP
 DNS
 DMZ
@@ -32,3 +31,7 @@ The result of using Layer 3 to interconnect the two core layers is:
 
 //Limitations
 All the models of routers and switches in packet tracer are outdated and end of support already.
+Packet tracer cannot create power distribution unit. I will mock a switch as terminal console server cos a normal server in pt doesnt have enough ports.
+
+In-band management
+Out-band Management
