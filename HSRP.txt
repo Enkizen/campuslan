@@ -1,0 +1,23 @@
+/////////R1
+int g0/0
+ip add 192.168.0.1 255.255.0.0              //dependant on network submask and static ip decided for routers
+standby 1 ip 192.168.0.10
+//higher priority will not auto take over unless failover or preempt is called.
+standby 1 priority 110
+//rdy to take over during failover or take over now if higher priority is set
+standby 1 preempt  
+
+//tracking & decrement 11 points priority when nearby interface g0/1 goes down
+standby 1 track g 0/1 11
+
+///////R2
+int g0/0
+ip add 192.168.0.2 255.255.0.0 
+standby 1 ip 192.168.0.10             //set v ip and standby
+standby 1 preempt  
+
+//When coup takes place, gratuitous ARP will be sent to connected Switches.
+HSRP UDP Port 1985
+Multicast address
+224.0.0.2 (all routers)
+224.0.0.102 (HSRP)
