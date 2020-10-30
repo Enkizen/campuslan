@@ -1,0 +1,24 @@
+Standard anti spoofing ACLs on router
+Based on RFC1918 and RFC2827
+
+![RFC2827 filter any incoming source IPS same as the org's public IP aka spoofing]
+///access-list 10 deny 198.201.162.0 0.0.0.255          //chg based on Virtual IP of router out to ISP and scope of mask      
+
+![RFC1918 filter any incoming source IPs that are private IPs]
+access-list 10 deny 10.0.0.0     0.255.255.255
+access-list 10 deny 172.16.0.0   0.15.255.255
+access-list 10 deny 192.168.0.0  0.0.255.255
+access-list 10 permit any
+
+![RFC2827 allow organization source IPs out towards ISP]
+access-list 20 permit 198.201.162.0    0.0.0.255
+
+int g0/0               //int s0/0 whatever interfaces outbound to ISP.
+ip access-group 10 in
+ip access-group 20 out
+
+
+!*Notes*
+access-list access-list-number {deny|permit} icmp source source-wildcard destination destination-wildcard [icmp-type [icmp-code] |icmp-message]
+access-list access-list-number {deny|permit} tcp source source-wildcard [operator [port]] destination destination-wildcard [operator [port]] [established]
+access-list access-list-number {deny|permit} udp source source-wildcard [operator [port]] destination destination-wildcard [operator [port]]
