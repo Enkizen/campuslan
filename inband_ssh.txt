@@ -2,8 +2,8 @@ conf t
 ip domain-name enkizen.com
 crypto key generate rsa
 
-//name for keys
-whatever.name
+//autoname for keys
+
 
 //bits in modulus. Multiple of 512
 1024
