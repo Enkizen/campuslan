@@ -8,7 +8,7 @@ whatever.name
 //bits in modulus. Multiple of 512
 1024
 
-username admin secret ccna
+username admin secret Cmy password is morePw23erful
 line vty 0 15
 transport input ssh
 login local
