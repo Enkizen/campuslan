@@ -1,0 +1,18 @@
+conf t
+ip domain-name enkizen.com
+crypto key generate rsa
+
+//name for keys
+whatever.name
+
+//bits in modulus. Multiple of 512
+1024
+
+username admin secret ccna
+line vty 0 15
+transport input ssh
+login local
+exit
+ip ssh version 2
+exit
+
