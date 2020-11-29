@@ -5,7 +5,7 @@ crypto key generate rsa
 //autoname for keys
 
 
-//bits in modulus. Multiple of 512
+//bits in modulus. Max 4092 but wait long long.
 1024
 
 username admin secret Cmy password is morePw23erful
